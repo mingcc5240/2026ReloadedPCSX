@@ -1,0 +1,22 @@
+LIBRARY DFCdrom
+EXPORTS
+    PSEgetLibType
+    PSEgetLibName
+    PSEgetLibVersion
+    CDRinit
+    CDRshutdown
+    CDRopen
+    CDRclose
+    CDRgetTN
+    CDRgetTD
+    CDRreadTrack
+    CDRgetBuffer
+    CDRgetBufferSub
+    CDRplay
+    CDRstop
+    CDRgetStatus
+    CDRreadCDDA
+    CDRgetDriveLetter
+    CDRconfigure
+    CDRtest
+    CDRabout
