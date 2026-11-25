@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{9B4D2E10-5F3A-4C88-B1D2-8E7F6A5C4D3B}</ProjectGuid>
+    <RootNamespace>pcsx_vb</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>pcsx_vb</TargetName>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>pcsx_vb</TargetName>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;__i386__;NO_ZLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)libpcsxcore;$(ProjectDir)win32;$(ProjectDir)win32\glue;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>pcsx_vb.def</ModuleDefinitionFile>
+      <AdditionalDependencies>winmm.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;__i386__;NO_ZLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)libpcsxcore;$(ProjectDir)win32;$(ProjectDir)win32\glue;$(ProjectDir)win32\zlib;$(ProjectDir)win32\gui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>pcsx_vb.def</ModuleDefinitionFile>
+      <AdditionalDependencies>winmm.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <!-- VB6 래퍼 및 Win32 플러그인 로더 -->
+    <ClCompile Include="libpcsxcore\gte.c" />
+    <ClCompile Include="pcsx_vb.c" />
+    <!-- libpcsxcore 핵심 소스 -->
+    <ClCompile Include="libpcsxcore\cdrom.c" />
+    <ClCompile Include="libpcsxcore\cdriso.c" />
+    <ClCompile Include="libpcsxcore\cheat.c" />
+    <ClCompile Include="libpcsxcore\debug.c" />
+    <ClCompile Include="libpcsxcore\decode_xa.c" />
+    <ClCompile Include="libpcsxcore\disr3000a.c" />
+    <ClCompile Include="libpcsxcore\gpu.c" />
+    <ClCompile Include="libpcsxcore\mdec.c" />
+    <ClCompile Include="libpcsxcore\misc.c" />
+    <ClCompile Include="libpcsxcore\plugins.c" />
+    <ClCompile Include="libpcsxcore\ppf.c" />
+    <ClCompile Include="libpcsxcore\psxbios.c" />
+    <ClCompile Include="libpcsxcore\psxcommon.c" />
+    <ClCompile Include="libpcsxcore\psxcounters.c" />
+    <ClCompile Include="libpcsxcore\psxdma.c" />
+    <ClCompile Include="libpcsxcore\psxhle.c" />
+    <ClCompile Include="libpcsxcore\psxhw.c" />
+    <ClCompile Include="libpcsxcore\psxinterpreter.c" />
+    <ClCompile Include="libpcsxcore\psxmem.c" />
+    <ClCompile Include="libpcsxcore\r3000a.c" />
+    <ClCompile Include="libpcsxcore\sio.c" />
+    <ClCompile Include="libpcsxcore\socket.c" />
+    <ClCompile Include="libpcsxcore\spu.c" />
+    <ClCompile Include="libpcsxcore\ix86\iR3000A.c" />
+    <ClCompile Include="libpcsxcore\ix86\ix86.c" />
+    <ClCompile Include="win32\zlib\adler32.c" />
+    <ClCompile Include="win32\zlib\compress.c" />
+    <ClCompile Include="win32\zlib\crc32.c" />
+    <ClCompile Include="win32\zlib\deflate.c" />
+    <ClCompile Include="win32\zlib\gzio.c" />
+    <ClCompile Include="win32\zlib\infblock.c" />
+    <ClCompile Include="win32\zlib\infcodes.c" />
+    <ClCompile Include="win32\zlib\inffast.c" />
+    <ClCompile Include="win32\zlib\inflate.c" />
+    <ClCompile Include="win32\zlib\inftrees.c" />
+    <ClCompile Include="win32\zlib\infutil.c" />
+    <ClCompile Include="win32\zlib\trees.c" />
+    <ClCompile Include="win32\zlib\uncompr.c" />
+    <ClCompile Include="win32\zlib\zutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pcsx_vb.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libpcsxcore\gte.h" />
+    <ClInclude Include="libpcsxcore\psxcommon.h" />
+    <ClInclude Include="win32\zlib\deflate.h" />
+    <ClInclude Include="win32\zlib\infblock.h" />
+    <ClInclude Include="win32\zlib\infcodes.h" />
+    <ClInclude Include="win32\zlib\inffast.h" />
+    <ClInclude Include="win32\zlib\inffixed.h" />
+    <ClInclude Include="win32\zlib\inftrees.h" />
+    <ClInclude Include="win32\zlib\infutil.h" />
+    <ClInclude Include="win32\zlib\trees.h" />
+    <ClInclude Include="win32\zlib\zconf.h" />
+    <ClInclude Include="win32\zlib\zlib.h" />
+    <ClInclude Include="win32\zlib\zutil.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -1,0 +1,7 @@
+LIBRARY pcsx_vb
+EXPORTS
+    PSX_Init
+    PSX_RunISO
+    PSX_Stop
+    PSX_Shutdown
+    PSX_ConfigSPU
