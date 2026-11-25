@@ -1,0 +1,21 @@
+LIBRARY minigl_gpu
+EXPORTS
+    PSEgetLibType
+    PSEgetLibName
+    PSEgetLibVersion
+    GPUinit
+    GPUshutdown
+    GPUopen
+    GPUclose
+    GPUconfigure
+    GPUabout
+    GPUtest
+    GPUwriteStatus
+    GPUreadStatus
+    GPUwriteData
+    GPUwriteDataMem
+    GPUreadData
+    GPUreadDataMem
+    GPUdmaChain
+    GPUupdateLace
+    GPUfreeze
